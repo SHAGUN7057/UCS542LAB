@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JavaScript Practical Programs</title>
+</head>
+<body>
+  <h2>JavaScript Practical Programs</h2>
+
+  <!-- Program i -->
+  <h3>i. Sum, Difference, Product, Quotient</h3>
+  <button onclick="calcNumbers()">Run Program</button>
+  <pre id="output1"></pre>
+
+  <!-- Program ii -->
+  <h3>ii. Array Operations</h3>
+  <button onclick="arrayOps()">Run Program</button>
+  <pre id="output2"></pre>
+
+  <!-- Program iii -->
+  <h3>iii. Form Validation</h3>
+  <form onsubmit="return validateForm()">
+    Name: <input type="text" id="name"><br />
+    Email: <input type="text" id="email"><br />
+    Age: <input type="text" id="age"><br /><br />
+    <button type="submit">Submit</button>
+  </form>
+  <p id="msg"></p>
+
+  <!-- Program iv -->
+  <h3>iv. Student Object</h3>
+  <button onclick="studentOps()">Run Program</button>
+  <pre id="output4"></pre>
+
+  <!-- Program v -->
+  <h3>v. Array Using Map, Filter, Reduce</h3>
+  <button onclick="runProcessArray()">Run Program</button>
+  <pre id="output5"></pre>
+
+<script>
+// Program i
+function calcNumbers() {
+  let num1 = parseFloat(prompt("Enter first number:"));
+  let num2 = parseFloat(prompt("Enter second number:"));
+
+  let sum = num1 + num2;
+  let diff = num1 - num2;
+  let prod = num1 * num2;
+  let quot = num1 / num2;
+
+  document.getElementById("output1").textContent =
+    "Sum: " + sum + "\n" +
+    "Difference: " + diff + "\n" +
+    "Product: " + prod + "\n" +
+    "Quotient: " + quot;
+}
+
+// Program ii
+function arrayOps() {
+  let arr = [12, 5, 30, 18, 7];
+
+  let largest = Math.max(...arr);
+  let smallest = Math.min(...arr);
+  let ascending = [...arr].sort((a, b) => a - b);
+  let descending = [...arr].sort((a, b) => b - a);
+
+  document.getElementById("output2").textContent =
+    "Array: " + arr + "\n" +
+    "Largest: " + largest + "\n" +
+    "Smallest: " + smallest + "\n" +
+    "Ascending: " + ascending + "\n" +
+    "Descending: " + descending;
+}
+
+// Program iii
+function validateForm() {
+  let name = document.getElementById("name").value.trim();
+  let email = document.getElementById("email").value.trim();
+  let age = parseInt(document.getElementById("age").value);
+  let msg = document.getElementById("msg");
+
+  if (name === "") {
+    msg.textContent = "Name cannot be empty";
+    return false;
+  }
+
+  let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailPattern.test(email)) {
+    msg.textContent = "Enter a valid email";
+    return false;
+  }
+
+  if (isNaN(age) || age < 18 || age > 100) {
+    msg.textContent = "Age must be between 18 and 100";
+    return false;
+  }
+
+  msg.textContent = "Form submitted successfully!";
+  return true;
+}
+
+// Program iv
+function studentOps() {
+  let student = {
+    name: "Shagun",
+    age: 20,
+    grade: "A"
+  };
+
+  student.class = "CSE";      
+  student.grade = "A+";          
+
+  let result = "";
+  for (let key in student) {
+    result += key + ": " + student[key] + "\n";
+  }
+
+  document.getElementById("output4").textContent = result;
+}
+
+// Program v
+function processArray(arr) {
+  let evenNumbers = arr.filter(num => num % 2 === 0);
+  let multiplied = evenNumbers.map(num => num * 2);
+  let sum = multiplied.reduce((acc, curr) => acc + curr, 0);
+  return sum;
+}
+
+function runProcessArray() {
+  let result = processArray([1, 2, 3, 4, 5, 6]);
+  document.getElementById("output5").textContent = "Result: " + result;
+}
+</script>
+
+</body>
+</html>
