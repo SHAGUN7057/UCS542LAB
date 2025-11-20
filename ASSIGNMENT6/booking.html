@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Trip - Wanderlust Travel Agency</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">🌍 Wanderlust</div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="packages.html">Packages</a></li>
+                <li><a href="booking.html" class="active">Booking</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1>Book Your Dream Vacation</h1>
+            <p>Fill out the form below to reserve your travel package</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="booking-section">
+            <form class="booking-form" action="#" method="POST">
+                <div class="form-group">
+                    <label for="fullName">Full Name *</label>
+                    <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="package">Select Package *</label>
+                        <select id="package" name="package" required>
+                            <option value="">-- Choose a package --</option>
+                            <option value="1">Tropical Paradise - Bali, Indonesia</option>
+                            <option value="2">European Romance - Paris, France</option>
+                            <option value="3">Cultural Discovery - Tokyo, Japan</option>
+                            <option value="4">Greek Island Escape - Santorini, Greece</option>
+                            <option value="5">Mountain Adventure - Machu Picchu, Peru</option>
+                            <option value="6">Luxury Dubai - Dubai, UAE</option>
+                            <option value="7">Nature's Wonder - New Zealand</option>
+                            <option value="8">Northern Lights - Iceland</option>
+                            <option value="9">African Safari - Serengeti, Tanzania</option>
+                            <option value="10">Mediterranean Cruise - Multiple Ports</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="destination">Destination *</label>
+                        <select id="destination" name="destination" required>
+                            <option value="">-- Select destination --</option>
+                            <option value="bali">Bali, Indonesia</option>
+                            <option value="paris">Paris, France</option>
+                            <option value="tokyo">Tokyo, Japan</option>
+                            <option value="santorini">Santorini, Greece</option>
+                            <option value="machu-picchu">Machu Picchu, Peru</option>
+                            <option value="dubai">Dubai, UAE</option>
+                            <option value="new-zealand">New Zealand</option>
+                            <option value="iceland">Iceland</option>
+                            <option value="tanzania">Serengeti, Tanzania</option>
+                            <option value="mediterranean">Mediterranean (Multiple)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="checkIn">Check-In Date *</label>
+                        <input type="date" id="checkIn" name="checkIn" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="checkOut">Check-Out Date *</label>
+                        <input type="date" id="checkOut" name="checkOut" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="guests">Number of Guests *</label>
+                        <input type="number" id="guests" name="guests" min="1" max="20" value="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="accommodation">Accommodation Type *</label>
+                        <select id="accommodation" name="accommodation" required>
+                            <option value="">-- Select type --</option>
+                            <option value="standard">Standard (3-star)</option>
+                            <option value="deluxe">Deluxe (4-star)</option>
+                            <option value="luxury">Luxury (5-star)</option>
+                            <option value="resort">Resort</option>
+                            <option value="boutique">Boutique Hotel</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="specialRequests">Special Requests or Requirements</label>
+                    <textarea id="specialRequests" name="specialRequests" rows="4" placeholder="Any dietary restrictions, accessibility needs, or special occasions?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="promoCode">Promo Code</label>
+                    <input type="text" id="promoCode" name="promoCode" placeholder="Enter promo code (e.g., EARLYBIRD)" maxlength="20">
+                    <small style="color: #666; font-size: 0.9rem;">Valid codes: EARLYBIRD, SUMMER2024, WANDERLUST, TRAVEL10</small>
+                </div>
+
+                <div class="form-group">
+                    <label>Estimated Total</label>
+                    <div class="estimated-total-display">
+                        <span style="font-size: 1.5rem; font-weight: bold; color: #667eea;" id="estimatedTotal">$0.00</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="paymentMethod">Preferred Payment Method *</label>
+                    <select id="paymentMethod" name="paymentMethod" required>
+                        <option value="">-- Select payment method --</option>
+                        <option value="credit-card">Credit Card</option>
+                        <option value="debit-card">Debit Card</option>
+                        <option value="bank-transfer">Bank Transfer</option>
+                        <option value="paypal">PayPal</option>
+                    </select>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <label>
+                        <input type="checkbox" name="newsletter" value="yes">
+                        Subscribe to our newsletter for travel deals and updates
+                    </label>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <label>
+                        <input type="checkbox" name="terms" value="accepted" required>
+                        I agree to the <a href="#" class="link">Terms and Conditions</a> and <a href="#" class="link">Privacy Policy</a> *
+                    </label>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Submit Booking</button>
+                    <button type="reset" class="btn-secondary">Reset Form</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Wanderlust Travel Agency. All rights reserved.</p>
+            <p>Dream. Explore. Discover.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
